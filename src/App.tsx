@@ -47,7 +47,7 @@ function App() {
               isActive ? "border-b-2 border-blue-600 font-bold" : "text-gray-600 hover:border-b-2 hover:border-gray-400"
             }
           >
-            Use Ref
+            Use Reference Hook
           </NavLink>
           <NavLink
             to="/hoc"

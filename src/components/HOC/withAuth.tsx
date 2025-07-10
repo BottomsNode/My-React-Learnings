@@ -2,7 +2,8 @@ import React, { type JSX } from "react";
 
 const isAuthenticated = () => {
     // localStorage.setItem("token", "abc123");
-    return Boolean(localStorage.getItem("token"));
+    const token =  Boolean(localStorage.getItem("token"));
+    return token;
 };
 
 export function withAuth<T extends JSX.IntrinsicAttributes>(WrappedComponent: React.ComponentType<T>) {
