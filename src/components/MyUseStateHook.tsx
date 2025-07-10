@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface MyObj {
     name: string;
@@ -24,7 +24,11 @@ function MyUseStateHook() {
 
     return (
         <div className="border-2 p-5">
-            <h1 className="text-center text-3xl">Use State Example</h1>
+            <h1 className="text-center text-3xl hover:font-extrabold">Use State Example</h1>
+            <p className="whitespace-normal break-words p-3">
+                useState hook is used to manage the state of a component in functional components.<br />
+                Calling useState returns an array with two elements: the current state value and a function to update the state.
+            </p>
 
             <form onSubmit={handleSubmit}>
                 <br />
@@ -103,4 +107,4 @@ function MyUseStateHook() {
     );
 }
 
-export default MyUseStateHook;
+export default React.memo(MyUseStateHook);

@@ -16,8 +16,8 @@ function MyUseRefHook() {
 
     return (
         <div className="border-2 p-5">
-            <h1 className="text-center text-3xl">Use Reference Example</h1>
-            <p className="p-3">The useRef Hook allows you to persist values between renders.</p>
+            <h1 className="text-center text-3xl hover:font-extrabold">Use Reference Example</h1>
+            <p className="whitespace-normal break-words p-3">The useRef Hook allows you to persist values between renders.</p>
 
             <label htmlFor="data" className="p-2 text-xl">Enter Text to count letter :</label>
             <input
