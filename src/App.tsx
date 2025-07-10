@@ -1,58 +1,80 @@
-import { useState } from "react"
-import { MyUseContextHook, MyUseEffectHook, MyUseRefHook, MyUseStateHook } from "./components"
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import {
+  MyUseContextHook,
+  MyUseEffectHook,
+  MyUseRefHook,
+  MyUseStateHook,
+  DashboardWithAuth,
+} from "./components";
 
 function App() {
-
-  const [visibleComponent, setVisibleComponent] = useState("")
-
   return (
-    <>
-      <h1 className="bg-gray-500 p-5 text-4xl font-bold text-center">React Learnings</h1>
+    <Router>
+      <div>
+        <h1 className="bg-gray-500 p-5 text-4xl font-bold text-center">React Learnings</h1>
 
-      <div className="m-2">
-        {/* State Button */}
-        <button
-          className="m-5 border-2 p-2"
-          onClick={() => {
-            setVisibleComponent("state")
-          }}
-        >Show Use State Div
-        </button>
-        {/* Effect Button */}
-        <button
-          className="m-5 border-2 p-2"
-          onClick={() => {
-            setVisibleComponent('effect')
-          }}
-        >Show Use Effect Div
-        </button>
-        {/* Context Button */}
-        <button
-          className="m-5 border-2 p-2"
-          onClick={() => {
-            setVisibleComponent('context')
-          }}
-        >Show Use Context Div
-        </button>
-        {/* useRef Button */}
-        <button
-          className="m-5 border-2 p-2"
-          onClick={() => {
-            setVisibleComponent('reference')
-          }}
-        >Show useRef Div
-        </button>
+        {/* Navigation Menu */}
+        <nav className="flex justify-center space-x-14 m-4">
+          <NavLink
+            to="/state"
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-2 border-blue-600 font-bold"
+                : "text-gray-600 hover:border-b-2 hover:border-gray-400"
+            }
+          >
+            Use State Hook
+          </NavLink>
+          <NavLink
+            to="/effect"
+            className={({ isActive }) =>
+              isActive ? "border-b-2 border-blue-600 font-bold" : "text-gray-600 hover:border-b-2 hover:border-gray-400"
+            }
+          >
+            Use Effect Hook
+          </NavLink>
+          <NavLink
+            to="/context"
+            className={({ isActive }) =>
+              isActive ? "border-b-2 border-blue-600 font-bold" : "text-gray-600 hover:border-b-2 hover:border-gray-400"
+            }
+          >
+            Use Context Hook
+          </NavLink>
+          <NavLink
+            to="/ref"
+            className={({ isActive }) =>
+              isActive ? "border-b-2 border-blue-600 font-bold" : "text-gray-600 hover:border-b-2 hover:border-gray-400"
+            }
+          >
+            Use Ref
+          </NavLink>
+          <NavLink
+            to="/hoc"
+            className={({ isActive }) =>
+              isActive ? "border-b-2 border-blue-600 font-bold" : "text-gray-600 hover:border-b-2 hover:border-gray-400"
+            }
+          >
+            Higher-Order-Component
+          </NavLink>
+        </nav>
 
-        <div style={{ marginTop: '5px', display: "flex", justifyContent: "center" }}>
-          {visibleComponent === 'state' && <MyUseStateHook />}
-          {visibleComponent === 'effect' && <MyUseEffectHook />}
-          {visibleComponent === 'context' && <MyUseContextHook />}
-          {visibleComponent === 'reference' && <MyUseRefHook />}
+        {/* Route Outlet */}
+        <div className="flex justify-center p-4">
+          <Routes>
+            <Route path="/state" element={<MyUseStateHook />} />
+            <Route path="/effect" element={<MyUseEffectHook />} />
+            <Route path="/context" element={<MyUseContextHook />} />
+            <Route path="/ref" element={<MyUseRefHook />} />
+            <Route path="/hoc" element={<DashboardWithAuth />} />
+
+            {/* Default route */}
+            <Route path="*" element={<div>Select a topic from above</div>} />
+          </Routes>
         </div>
       </div>
-
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
