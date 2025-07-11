@@ -80,14 +80,14 @@ function App() {
             Use Callback Hook
           </NavLink>
           <NavLink
-            to="/"
+            to="/memo"
             className={({ isActive }) =>
               isActive
                 ? "border-b-2 border-blue-600 font-bold text-blue-700"
                 : "text-gray-600 hover:border-b-2 hover:border-gray-400"
             }
           >
-            Use Memo Hook
+            Redux ToDo List
           </NavLink>
         </nav>
 

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import PostList from "./Post-List-Data/PostList";
 
 export interface PostData {
@@ -30,18 +30,18 @@ function MyUseCallbackHook() {
 
 
     // For memoization of CallBack no use of memo
-    // const filteredPosts = useCallback(() => {
-    //     return posts.filter((post) =>
-    //         post.title.toLowerCase().includes(searchTerm.toLowerCase())
-    //     );
-    // }, [posts, searchTerm]);
-
-    // For memoization with use of memo
-    const filteredPosts = useMemo(() => {
+    const filteredPosts = useCallback(() => {
         return posts.filter((post) =>
             post.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
     }, [posts, searchTerm]);
+
+    // For memoization with use of memo
+    // const filteredPosts = useMemo(() => {
+    //     return posts.filter((post) =>
+    //         post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    //     );
+    // }, [posts, searchTerm]);
 
 
 
@@ -78,8 +78,8 @@ function MyUseCallbackHook() {
                             Loading..!!
                         </p>
                     ) : (
-                        // <PostList getFilteredPosts={filteredPosts} />
-                        <PostList filteredPosts={filteredPosts} />
+                        <PostList getFilteredPosts={filteredPosts} />
+                        // <PostList filteredPosts={filteredPosts} />
                     )}
                 </div>
             </div>
