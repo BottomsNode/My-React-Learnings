@@ -79,16 +79,6 @@ function App() {
           >
             Use Callback Hook
           </NavLink>
-          <NavLink
-            to="/memo"
-            className={({ isActive }) =>
-              isActive
-                ? "border-b-2 border-blue-600 font-bold text-blue-700"
-                : "text-gray-600 hover:border-b-2 hover:border-gray-400"
-            }
-          >
-            Redux ToDo List
-          </NavLink>
         </nav>
 
         <hr className="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700" />
@@ -102,7 +92,6 @@ function App() {
             <Route path="/ref" element={<MyUseRefHook />} />
             <Route path="/hoc" element={<DashboardWithAuth />} />
             <Route path="/callback" element={<MyUseCallbackHook />} />
-            {/* <Route path="/memo" element={<MyUseMemoHook />} /> */}
 
             {/* Default fallback route */}
             <Route path="*" element={<div>Select a topic from above</div>} />
